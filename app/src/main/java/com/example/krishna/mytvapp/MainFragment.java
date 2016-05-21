@@ -1,5 +1,6 @@
 package com.example.krishna.mytvapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v17.leanback.app.BrowseFragment;
 import android.support.v17.leanback.widget.ArrayObjectAdapter;
@@ -96,7 +97,12 @@ public class MainFragment extends BrowseFragment {
     OnItemViewClickedListener onItemViewClickedListener = new OnItemViewClickedListener() {
         @Override
         public void onItemClicked(Presenter.ViewHolder itemViewHolder, Object item, RowPresenter.ViewHolder rowViewHolder, Row row) {
-            Log.i(TAG, "onItemClicked: ");
+            Log.i(TAG, "onItemClicked: " + item);
+            if (item instanceof Search) {
+                Intent intent = new Intent(getActivity(), DetailsActivity.class);
+                intent.putExtra("video", (Search) item);
+                startActivity(intent);
+            }
         }
     };
 
