@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">My TV App</string>
+    <color name="primary">#e40000</color>
+</resources>
